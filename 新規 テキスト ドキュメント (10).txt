@@ -8,3 +8,5 @@ add と commit テスト
 
 add テスト２
 うまくいかぬ
+
+vscode　から push
