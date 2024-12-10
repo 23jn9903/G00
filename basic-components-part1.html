@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- 文字コードの設定 -->
+    <meta charset="UTF-8">
+    <!-- レスポンシブ対応のためのビューポート設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap基本コンポーネント Part1</title>
+    <!-- Bootstrapのスタイルシートを読み込み -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* セクションごとの余白と背景設定 */
+        .example-section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        /* 説明文のスタイル */
+        .explanation {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        /* コードブロックのスタイル */
+        .code-block {
+            background-color: #272822;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <!-- コンテンツを中央寄せにするコンテナ -->
+    <div class="container mt-4">
+        <h1>Bootstrap基本コンポーネント</h1>
+
+        <!-- ボタンセクション -->
+        <section class="example-section">
+            <h2>1. ボタン</h2>
+            <div class="explanation">
+                <p>用途に応じた様々なボタンスタイル</p>
+            </div>
+
+            <!-- 基本的なボタンの種類 -->
+            <div class="mb-3">
+                <h5>基本的なボタン</h5>
+                <!-- btn: ボタンの基本クラス -->
+                <!-- btn-primary: メインカラーのボタン -->
+                <button type="button" class="btn btn-primary">Primary</button>
+                <!-- btn-secondary: サブカラーのボタン -->
+                <button type="button" class="btn btn-secondary">Secondary</button>
+                <!-- btn-success: 成功を表すボタン -->
+                <button type="button" class="btn btn-success">Success</button>
+                <!-- btn-danger: 危険や削除を表すボタン -->
+                <button type="button" class="btn btn-danger">Danger</button>
+                <!-- btn-warning: 警告を表すボタン -->
+                <button type="button" class="btn btn-warning">Warning</button>
+                <!-- btn-info: 情報を表すボタン -->
+                <button type="button" class="btn btn-info">Info</button>
+            </div>
+
+            <!-- アウトラインスタイルのボタン -->
+            <div class="mb-3">
+                <h5>アウトラインボタン</h5>
+                <!-- btn-outline-*: 枠線のみのスタイル -->
+                <button type="button" class="btn btn-outline-primary">Primary</button>
+                <button type="button" class="btn btn-outline-secondary">Secondary</button>
+                <button type="button" class="btn btn-outline-success">Success</button>
+            </div>
+
+            <!-- サイズバリエーション -->
+            <div class="mb-3">
+                <h5>サイズバリエーション</h5>
+                <!-- btn-lg: 大きいサイズのボタン -->
+                <button type="button" class="btn btn-primary btn-lg">大きい</button>
+                <!-- デフォルトサイズ -->
+                <button type="button" class="btn btn-primary">標準</button>
+                <!-- btn-sm: 小さいサイズのボタン -->
+                <button type="button" class="btn btn-primary btn-sm">小さい</button>
+            </div>
+
+            <!-- コード例の表示 -->
+            <div class="code-block">
+<!-- 基本的なボタン -->
+<button type="button" class="btn btn-primary">Primary</button>
+
+<!-- アウトラインスタイル -->
+<button type="button" class="btn btn-outline-primary">Primary</button>
+
+<!-- サイズ違い -->
+<button type="button" class="btn btn-primary btn-lg">大きい</button>
+<button type="button" class="btn btn-primary btn-sm">小さい</button></div>
+        </section>
+
+        <!-- アラートセクション -->
+        <section class="example-section">
+            <h2>2. アラート</h2>
+            <div class="explanation">
+                <p>状態に応じたメッセージ表示</p>
+            </div>
+
+            <!-- 基本的なアラート -->
+            <!-- alert: アラートの基本クラス -->
+            <!-- role="alert": スクリーンリーダー対応 -->
+            <div class="alert alert-primary" role="alert">
+                これは基本的なアラートです
+            </div>
+
+            <!-- 成功メッセージ -->
+            <!-- alert-success: 成功を表す緑色のアラート -->
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">成功!</h4>
+                <p class="mb-0">処理が完了しました。</p>
+            </div>
+
+            <!-- 閉じるボタン付きアラート -->
+            <!-- alert-dismissible: 閉じるボタンのための空間確保 -->
+            <!-- fade show: フェードアニメーション効果 -->
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                閉じることができるアラートです
+                <!-- btn-close: 閉じるボタンのスタイル -->
+                <!-- data-bs-dismiss="alert": 閉じる機能の設定 -->
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+
+            <!-- コード例の表示 -->
+            <div class="code-block">
+<!-- 基本的なアラート -->
+<div class="alert alert-primary" role="alert">
+    基本的なアラート
+</div>
+
+<!-- 見出し付きアラート -->
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">成功!</h4>
+    <p>メッセージ内容</p>
+</div>
+
+<!-- 閉じるボタン付きアラート -->
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    閉じることができるアラート
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div></div>
+        </section>
+    </div>
+
+    <!-- Bootstrapのスクリプトを読み込み -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

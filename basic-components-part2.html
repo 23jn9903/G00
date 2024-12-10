@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- 文字コードの設定 -->
+    <meta charset="UTF-8">
+    <!-- レスポンシブ対応のためのビューポート設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap基本コンポーネント Part2</title>
+    <!-- Bootstrapのスタイルシートを読み込み -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* セクションごとの余白と背景設定 */
+        .example-section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        /* 説明文のスタイル */
+        .explanation {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        /* コードブロックのスタイル */
+        .code-block {
+            background-color: #272822;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <!-- コンテンツを中央寄せにするコンテナ -->
+    <div class="container mt-4">
+        <h2>3. カード</h2>
+        <div class="explanation">
+            <p>情報をまとめて表示するカードコンポーネント</p>
+        </div>
+
+        <!-- カードの実装例を3列グリッドで表示 -->
+        <div class="row">
+            <!-- 基本的なカード -->
+            <div class="col-md-4 mb-3">
+                <!-- card: カードの基本クラス -->
+                <div class="card">
+                    <!-- card-img-top: カード上部の画像 -->
+                    <img src="/api/placeholder/400/300" class="card-img-top" alt="サンプル画像">
+                    <!-- card-body: カードの本文部分 -->
+                    <div class="card-body">
+                        <!-- card-title: カードのタイトル -->
+                        <h5 class="card-title">カードのタイトル</h5>
+                        <!-- card-text: カードの本文テキスト -->
+                        <p class="card-text">カードの内容をここに記述します。</p>
+                        <!-- ボタンの配置 -->
+                        <a href="#" class="btn btn-primary">詳細を見る</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ヘッダー/フッター付きカード -->
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <!-- card-header: カードのヘッダー部分 -->
+                    <div class="card-header">
+                        特集
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">特別なコンテンツ</h5>
+                        <p class="card-text">ヘッダーとフッター付きのカードです。</p>
+                    </div>
+                    <!-- card-footer: カードのフッター部分 -->
+                    <!-- text-muted: テキストを薄い色に -->
+                    <div class="card-footer text-muted">
+                        2日前
+                    </div>
+                </div>
+            </div>
+
+            <!-- リストグループ付きカード -->
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        お知らせ
+                    </div>
+                    <!-- list-group: リストグループの基本クラス -->
+                    <!-- list-group-flush: 境界線なしのリスト -->
+                    <ul class="list-group list-group-flush">
+                        <!-- list-group-item: リスト項目 -->
+                        <li class="list-group-item">新着情報</li>
+                        <li class="list-group-item">イベント情報</li>
+                        <li class="list-group-item">更新情報</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- コード例の表示 -->
+        <div class="code-block">
+<!-- 基本的なカード -->
+<div class="card">
+    <!-- カード上部の画像 -->
+    <img src="..." class="card-img-top" alt="...">
+    <!-- カードの本文部分 -->
+    <div class="card-body">
+        <h5 class="card-title">タイトル</h5>
+        <p class="card-text">内容</p>
+        <a href="#" class="btn btn-primary">ボタン</a>
+    </div>
+</div>
+
+<!-- ヘッダー/フッター付きカード -->
+<div class="card">
+    <!-- ヘッダー部分 -->
+    <div class="card-header">ヘッダー</div>
+    <!-- 本文部分 -->
+    <div class="card-body">
+        <h5 class="card-title">タイトル</h5>
+        <p class="card-text">内容</p>
+    </div>
+    <!-- フッター部分 -->
+    <div class="card-footer">フッター</div>
+</div>
+
+<!-- リストグループ付きカード -->
+<div class="card">
+    <div class="card-header">ヘッダー</div>
+    <!-- 境界線なしのリスト -->
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">項目1</li>
+        <li class="list-group-item">項目2</li>
+    </ul>
+</div></div>
+
+        <!-- 実践的な使用例 -->
+        <section class="example-section mt-4">
+            <h2>4. 実践的な使用例</h2>
+            <!-- アラートとカードを組み合わせた例 -->
+            <div class="alert alert-success mb-4">
+                <h4 class="alert-heading">登録完了!</h4>
+                <p>アカウントの登録が完了しました。以下の商品をご確認ください。</p>
+            </div>
+
+            <!-- 商品カードの例 -->
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <!-- 商品画像 -->
+                        <img src="/api/placeholder/400/300" class="card-img-top" alt="商品画像">
+                        <div class="card-body">
+                            <h5 class="card-title">商品A</h5>
+                            <p class="card-text">商品の説明文がここに入ります。</p>
+                            <!-- アクションボタン -->
+                            <button class="btn btn-primary">カートに追加</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Bootstrapのスクリプトを読み込み -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

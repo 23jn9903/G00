@@ -1,0 +1,114 @@
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .nav-menu {
+            width: 250px;
+            margin: 20px;
+        }
+
+        .menu-item {
+            position: relative;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+        }
+
+        .menu-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .menu-item::after {
+            content: '>';
+            color: #888;
+        }
+
+        .submenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            width: 300px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            display: none;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+
+        .menu-item:hover .submenu {
+            display: block;
+        }
+
+        .submenu-title {
+            padding: 8px 15px;
+            font-weight: bold;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 5px;
+        }
+
+        .checkbox-item {
+            padding: 8px 15px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .checkbox-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            cursor: pointer;
+            flex-grow: 1;
+        }
+
+        .checkbox-count {
+            color: #888;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+
+        .button-group {
+            padding: 10px 15px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+
+        .button {
+            padding: 8px 15px;
+            border: 1px solid #bf0000;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .clear-button {
+            background: white;
+            color: #bf0000;
+        }
+
+        .apply-button {
+            background: #bf0000;
+            color: white;
+        }
+
+        .rakuten-logo {
+            color: #bf0000;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px;
+        }

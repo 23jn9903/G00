@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- 文字コードの設定 -->
+    <meta charset="UTF-8">
+    <!-- レスポンシブ対応のビューポート設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>フォーム実装ガイド</title>
+    <!-- Bootstrapのスタイルシート読み込み -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* デモ用のスタイル */
+        .form-section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .explanation {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .code-example {
+            background-color: #272822;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Bootstrapフォーム実装ガイド</h1>
+
+        <!-- 基本的なフォーム -->
+        <section class="form-section">
+            <h2>1. 基本的なフォーム</h2>
+            <div class="explanation">
+                <p>最も基本的なフォームの構造</p>
+            </div>
+
+            <!-- mb-3: 下マージンを設定 -->
+            <form>
+                <!-- form-group: フォーム要素のグループ化（非推奨だが互換性のために使用可能） -->
+                <!-- mb-3: 下マージンを設定 -->
+                <div class="mb-3">
+                    <!-- form-label: ラベルのスタイリング -->
+                    <label for="exampleInput1" class="form-label">メールアドレス</label>
+                    <!-- form-control: 入力フィールドの基本スタイル -->
+                    <input type="email" class="form-control" id="exampleInput1">
+                    <!-- form-text: 補助テキスト -->
+                    <div class="form-text">メールアドレスは公開されません。</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInput2" class="form-label">パスワード</label>
+                    <input type="password" class="form-control" id="exampleInput2">
+                </div>
+
+                <!-- form-check: チェックボックスやラジオボタンの親要素 -->
+                <div class="mb-3 form-check">
+                    <!-- form-check-input: チェックボックスのスタイル -->
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <!-- form-check-label: チェックボックスのラベル -->
+                    <label class="form-check-label" for="exampleCheck1">ログイン状態を保持</label>
+                </div>
+
+                <!-- btn btn-primary: プライマリーカラーのボタン -->
+                <button type="submit" class="btn btn-primary">送信</button>
+            </form>
+
+            <div class="code-example mt-4">
+<!-- 基本的なフォーム構造 -->
+&lt;form&gt;
+    &lt;div class="mb-3"&gt;
+        &lt;label for="exampleInput1" class="form-label"&gt;メールアドレス&lt;/label&gt;
+        &lt;input type="email" class="form-control" id="exampleInput1"&gt;
+        &lt;div class="form-text"&gt;補助テキスト&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button type="submit" class="btn btn-primary"&gt;送信&lt;/button&gt;
+&lt;/form&gt;</div>
+        </section>
+
+        <!-- フォームレイアウト -->
+        <section class="form-section">
+            <h2>2. フォームレイアウト</h2>
+            
+            <!-- 水平フォーム -->
+            <h3>水平フォーム</h3>
+            <!-- row: グリッドシステムの行 -->
+            <form>
+                <!-- row: フレックスボックスベースのグリッドシステム -->
+                <!-- mb-3: 下マージン -->
+                <div class="row mb-3">
+                    <!-- col-sm-2: 小画面以上で2列分の幅 -->
+                    <label for="horizontalInput1" class="col-sm-2 col-form-label">メール</label>
+                    <!-- col-sm-10: 小画面以上で10列分の幅 -->
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="horizontalInput1">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="horizontalInput2" class="col-sm-2 col-form-label">パスワード</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="horizontalInput2">
+                    </div>
+                </div>
+
+                <!-- オフセットを使用してボタンを右寄せ -->
+                <div class="row">
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="submit" class="btn btn-primary">送信</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="code-example mt-4">
+<!-- 水平フォームの構造 -->
+&lt;form&gt;
+    &lt;div class="row mb-3"&gt;
+        &lt;label for="horizontalInput1" class="col-sm-2 col-form-label"&gt;ラベル&lt;/label&gt;
+        &lt;div class="col-sm-10"&gt;
+            &lt;input type="email" class="form-control" id="horizontalInput1"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</div>
+        </section>
+
+        <!-- バリデーション付きフォーム -->
+        <section class="form-section">
+            <h2>3. バリデーション付きフォーム</h2>
+            
+            <!-- needs-validation: バリデーションのためのクラス -->
+            <form class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="validationCustom01" class="form-label">氏名</label>
+                    <!-- required: 必須項目 -->
+                    <!-- valid-feedback/invalid-feedback: バリデーション結果のメッセージ -->
+                    <input type="text" class="form-control" id="validationCustom01" required>
+                    <div class="valid-feedback">
+                        OK!
+                    </div>
+                    <div class="invalid-feedback">
+                        氏名を入力してください。
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="validationCustom02" class="form-label">メールアドレス</label>
+                    <input type="email" class="form-control" id="validationCustom02" required>
+                    <div class="invalid-feedback">
+                        有効なメールアドレスを入力してください。
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" type="submit">送信</button>
+            </form>
+
+            <div class="code-example mt-4">
+<!-- バリデーション付きフォーム -->
+&lt;form class="needs-validation" novalidate&gt;
+    &lt;div class="mb-3"&gt;
+        &lt;label for="validationCustom01" class="form-label"&gt;氏名&lt;/label&gt;
+        &lt;input type="text" class="form-control" id="validationCustom01" required&gt;
+        &lt;div class="valid-feedback"&gt;OK!&lt;/div&gt;
+        &lt;div class="invalid-feedback"&gt;氏名を入力してください。&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+
+&lt;!-- バリデーション用JavaScript --&gt;
+&lt;script&gt;
+    // バリデーションの有効化
+    (function() {
+        'use strict';
+        var forms = document.querySelectorAll('.needs-validation');
+        Array.prototype.slice.call(forms).forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+&lt;/script&gt;</div>
+        </section>
+    </div>
+
+    <!-- Bootstrapのスクリプト読み込み -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- バリデーション用のスクリプト -->
+    <script>
+        // バリデーションの有効化
+        (function() {
+            'use strict';
+            var forms = document.querySelectorAll('.needs-validation');
+            Array.prototype.slice.call(forms).forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+</body>
+</html>

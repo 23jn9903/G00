@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- 文字コードの設定 -->
+    <meta charset="UTF-8">
+    <!-- レスポンシブ対応のビューポート設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ナビバー実装ガイド</title>
+    <!-- Bootstrapのスタイルシート読み込み -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* コードブロックのスタイル */
+        .code-example {
+            background-color: #272822;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        
+        /* 説明ブロックのスタイル */
+        .explanation {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        /* デモ用のスタイル */
+        .demo {
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 最もシンプルなナビバー -->
+    <!-- navbar: ナビバーの基本クラス -->
+    <!-- navbar-expand-lg: lg(992px)以上でメニューを展開表示 -->
+    <!-- navbar-dark: ダークテーマ（明るい色の文字） -->
+    <!-- bg-primary: 青色の背景 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <!-- container: コンテンツを中央寄せにする -->
+        <div class="container">
+            <!-- navbar-brand: サイト名やロゴ用のスタイル -->
+            <a class="navbar-brand" href="#">サイト名</a>
+            
+            <!-- ハンバーガーメニューボタン -->
+            <!-- navbar-toggler: ハンバーガーボタンの基本クラス -->
+            <!-- data-bs-toggle="collapse": クリックで開閉する動作を指定 -->
+            <!-- data-bs-target: 開閉する対象を指定（idと紐付け） -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample">
+                <!-- ハンバーガーアイコン -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- 折りたたみ可能なメニュー部分 -->
+            <!-- collapse: 折りたたみ機能を追加 -->
+            <!-- navbar-collapse: ナビバー用の折りたたみスタイル -->
+            <!-- id: ハンバーガーメニューのターゲットと一致させる -->
+            <div class="collapse navbar-collapse" id="navbarExample">
+                <!-- メニューリスト -->
+                <!-- navbar-nav: ナビバーのメニューリスト -->
+                <!-- me-auto: 右側に余白を作り、メニューを左寄せ -->
+                <ul class="navbar-nav me-auto">
+                    <!-- メニュー項目 -->
+                    <!-- nav-item: メニュー項目のコンテナ -->
+                    <li class="nav-item">
+                        <!-- nav-link: メニューリンクのスタイル -->
+                        <!-- active: 現在のページを示す -->
+                        <a class="nav-link active" href="#">ホーム</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">特徴</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">価格</a>
+                    </li>
+
+                    <!-- ドロップダウンメニュー -->
+                    <!-- dropdown: ドロップダウンの基本クラス -->
+                    <li class="nav-item dropdown">
+                        <!-- dropdown-toggle: ドロップダウンの矢印を表示 -->
+                        <a class="nav-link dropdown-toggle" href="#" role="button" 
+                           data-bs-toggle="dropdown">
+                            その他
+                        </a>
+                        <!-- dropdown-menu: ドロップダウンの中身 -->
+                        <ul class="dropdown-menu">
+                            <!-- dropdown-item: ドロップダウンの項目 -->
+                            <li><a class="dropdown-item" href="#">リンク1</a></li>
+                            <li><a class="dropdown-item" href="#">リンク2</a></li>
+                            <!-- dropdown-divider: 区切り線 -->
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">その他</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- 検索フォーム -->
+                <!-- d-flex: フレックスボックスを使用 -->
+                <form class="d-flex">
+                    <!-- me-2: 右側のマージン -->
+                    <input class="form-control me-2" type="search" placeholder="検索">
+                    <button class="btn btn-outline-light" type="submit">検索</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- コード例 -->
+
+
+        <!-- カラーバリエーション例 -->
+        <section class="mt-4">
+            <h3>カラーバリエーション</h3>
+            <!-- ライトカラーのナビバー -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Light テーマ</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLight">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarLight">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">ホーム</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- ダークカラーのナビバー -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Dark テーマ</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDark">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarDark">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">ホーム</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
+
+        <!-- 重要ポイントの説明 -->
+        <section class="mt-4">
+            <h3>重要なポイント</h3>
+            <div class="explanation">
+                <ul>
+                    <li>navbar-expand-lg: 992px以上で水平メニュー表示</li>
+                    <li>navbar-dark/light: テーマカラーの設定</li>
+                    <li>bg-*: 背景色の設定</li>
+                    <li>container: 中央寄せと最大幅の設定</li>
+                    <li>data-bs-targetとidの一致を確認</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- Bootstrapのスクリプト -->
+    <!-- ハンバーガーメニューの動作に必要 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

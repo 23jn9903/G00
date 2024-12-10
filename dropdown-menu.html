@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .nav-menu {
+            width: 250px;
+            margin: 20px;
+        }
+
+        .menu-item {
+            position: relative;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+        }
+
+        .menu-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .menu-item::after {
+            content: '>';
+            color: #888;
+        }
+
+        .submenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            width: 250px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            display: none;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .menu-item:hover .submenu {
+            display: block;
+        }
+
+        .submenu-item {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+        }
+
+        .submenu-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .submenu-item:last-child {
+            border-bottom: none;
+        }
+
+        .rakuten-logo {
+            color: #bf0000;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="rakuten-logo">Rakutenマート</div>
+    
+    <nav class="nav-menu">
+        <div class="menu-item">
+            推しプライス
+            <div class="submenu">
+                <div class="submenu-item">推しプライスすべて</div>
+                <div class="submenu-item">【推しプライス】食品</div>
+                <div class="submenu-item">【推しプライス】菓子・飲料・お酒</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            超目玉（野菜・果物・お肉ほか）
+            <div class="submenu">
+                <div class="submenu-item">野菜</div>
+                <div class="submenu-item">果物</div>
+                <div class="submenu-item">お肉</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            家計応援
+            <div class="submenu">
+                <div class="submenu-item">特売商品</div>
+                <div class="submenu-item">セール品</div>
+                <div class="submenu-item">お買い得商品</div>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // アニメーションやインタラクションの追加が必要な場合に使用
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('mouseover', function() {
+                // 必要に応じてアニメーション効果を追加
+            });
+        });
+    </script>
+</body>
+</html>

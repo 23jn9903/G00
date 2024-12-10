@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .nav-menu {
+            width: 250px;
+            margin: 20px;
+        }
+
+        .menu-item {
+            position: relative;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+        }
+
+        .menu-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .menu-item::after {
+            content: '>';
+            color: #888;
+        }
+
+        .submenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            width: 300px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            display: none;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+
+        .menu-item:hover .submenu {
+            display: block;
+        }
+
+        .submenu-title {
+            padding: 8px 15px;
+            font-weight: bold;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 5px;
+        }
+
+        .checkbox-item {
+            padding: 8px 15px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .checkbox-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            cursor: pointer;
+            flex-grow: 1;
+        }
+
+        .checkbox-count {
+            color: #888;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+
+        .button-group {
+            padding: 10px 15px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+
+        .button {
+            padding: 8px 15px;
+            border: 1px solid #bf0000;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .clear-button {
+            background: white;
+            color: #bf0000;
+        }
+
+        .apply-button {
+            background: #bf0000;
+            color: white;
+        }
+
+        .rakuten-logo {
+            color: #bf0000;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="nav-menu">
+        <div class="menu-item">
+            カテゴリから探す
+            <div class="submenu">
+                <div class="submenu-title">カテゴリを選択</div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="category1">
+                    <label for="category1">野菜・フルーツ</label>
+                    <span class="checkbox-count">(2,458)</span>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="category2">
+                    <label for="category2">精肉・お肉加工品</label>
+                    <span class="checkbox-count">(1,234)</span>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="category3">
+                    <label for="category3">魚介類・水産加工品</label>
+                    <span class="checkbox-count">(987)</span>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="category4">
+                    <label for="category4">お米・パン・麺類</label>
+                    <span class="checkbox-count">(756)</span>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="category5">
+                    <label for="category5">卵・乳製品・チーズ</label>
+                    <span class="checkbox-count">(432)</span>
+                </div>
+                <div class="button-group">
+                    <button class="button clear-button">クリア</button>
+                    <button class="button apply-button">適用する</button>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item">
+            価格帯から探す
+            <div class="submenu">
+                <div class="submenu-title">価格帯を選択</div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="price1">
+                    <label for="price1">1,000円未満</label>
+                    <span class="checkbox-count">(3,245)</span>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="price2">
+                    <label for="price2">1,000円～2,000円</label>
+                    <span class="checkbox-count">(2,156)</span>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="price3">
+                    <label for="price3">2,000円～3,000円</label>
+                    <span class="checkbox-count">(1,432)</span>
+                </div>
+                <div class="button-group">
+                    <button class="button clear-button">クリア</button>
+                    <button class="button apply-button">適用する</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // クリアボタンの処理
+        document.querySelectorAll('.clear-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const submenu = this.closest('.submenu');
+                const checkboxes = submenu.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+            });
+        });
+
+        // 適用ボタンの処理
+        document.querySelectorAll('.apply-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const submenu = this.closest('.submenu');
+                const checkedBoxes = submenu.querySelectorAll('input[type="checkbox"]:checked');
+                const selectedItems = Array.from(checkedBoxes).map(checkbox => checkbox.nextElementSibling.textContent);
+                console.log('選択されたアイテム:', selectedItems);
+                // ここに選択後の処理を追加
+            });
+        });
+
+        // チェックボックスのクリックイベントの伝搬を止める
+        document.querySelectorAll('.checkbox-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+</body>
+</html>
